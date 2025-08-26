@@ -1,18 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
   const buttons = document.querySelectorAll('[data-tab-button]');
-  const tabsContainer = document.querySelectorAll('[data-tab-id]');
+  const questions = document.querySelectorAll('[data-faq-question]');
 
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function (botao) {
-      const abaAlvo = botao.target.getAttribute('data-tab-button');
-      const aba = document.querySelector(`[data-tab-id="${abaAlvo}"]`);
-      esconderTodasAbas();
+      const abaAlvo = botao.target.dataset.tabButton;
+      const aba = document.querySelector(`[data-tab-id=${abaAlvo}]`);
+      escondeTodasAbas();
       aba.classList.add('shows__list--is-active');
       removeBotaoAtivo();
       botao.target.classList.add('shows__tabs__button--is-active');
     });
   }
+
+  for (let i = 0; i < questions.length; i++) {
+    questions[i].addEventListener('click', abreFechaResposta);
+  }
 });
+
+function abreFechaResposta(element) {
+  const classe = 'faq__questions__item--is-open';
+  const elementoPai = element.target.parentNode;
+
+  elementoPai.classList.toggle(classe);
+}
 
 function removeBotaoAtivo() {
   const buttons = document.querySelectorAll('[data-tab-button]');
@@ -22,7 +33,7 @@ function removeBotaoAtivo() {
   }
 }
 
-function esconderTodasAbas() {
+function escondeTodasAbas() {
   const tabsContainer = document.querySelectorAll('[data-tab-id]');
 
   for (let i = 0; i < tabsContainer.length; i++) {
