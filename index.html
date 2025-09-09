@@ -10,7 +10,11 @@
     <header class="header header--is-hidden">
       <div class="header__container">
         <h1>
-          <img  class="header__logo" src="./src/images/disneyplus.svg" alt="Logo disney Plus" />
+          <img
+            class="header__logo"
+            src="./src/images/disneyplus.svg"
+            alt="Logo disney Plus"
+          />
         </h1>
         <ul class="header__links">
           <li class="header__links__item">
@@ -220,7 +224,10 @@
 
     <!-- section com rei leão de background img e texto centralizado com position absolute  -->
     <section class="image-text-section image-text-section--image-full-width">
-      <img src="./dist/images/fundo_rei_leao.png" alt="Rei leão" />
+      <picture>
+        <source media="(max-width:768px)" srcset="./dist/images/fundo_rei_leao_celular.png" />
+        <img src="./dist/images/fundo_rei_leao.png" alt="Rei leão" />
+      </picture>
       <div
         class="image-text-section__text_container image-text-section--image-full-width__text_container"
       >
